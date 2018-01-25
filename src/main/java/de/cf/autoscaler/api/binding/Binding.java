@@ -50,8 +50,12 @@ public class Binding {
 	public String isValidWithReason() {
 		if (id ==  null || id.isEmpty())
 			return "id is not set or empty";
+		if (!BindingContext.validId(id))
+			return "id contains special characters";
 		if (resourceId == null || resourceId.isEmpty())
 			return "resourceId is not set or empty";
+		if (!BindingContext.validId(resourceId))
+			return "resourceId contains special characters";
 		if (scalerId == null || scalerId.isEmpty())
 			return "scalerId is not set or empty";
 		if (creationTime < 0)

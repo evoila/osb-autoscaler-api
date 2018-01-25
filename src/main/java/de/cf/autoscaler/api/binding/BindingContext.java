@@ -62,7 +62,12 @@ public class BindingContext {
 	}
 	
 	@JsonIgnore
-	private boolean validId(String id) {
+	/**
+	 * Checks the given String for any other characters than [a-zA-Z] or '-'
+	 * @param id id as a String to check for special characters
+	 * @return true, if no special characters were found
+	 */
+	public static boolean validId(String id) {
 		if (!id.matches("\\w+")) {
 			for (int i = 0; i < id.length(); i++) {
 				if (String.valueOf(id.charAt(i)).matches("\\W+") && id.charAt(i) != '-' ) {
