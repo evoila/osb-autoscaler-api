@@ -61,6 +61,12 @@ public class BindingContext {
 		return platform.equals(other.platform) && space_guid.equals(other.space_guid) && organization_guid.equals(other.organization_guid);
 	}
 	
+	@Override
+	public String toString() {
+		return "BindingContext [platform=" + platform + ", space_guid=" + space_guid + ", organization_guid="
+				+ organization_guid + "]";
+	}
+
 	@JsonIgnore
 	/**
 	 * Checks the given String for any other characters than [a-zA-Z] or '-'

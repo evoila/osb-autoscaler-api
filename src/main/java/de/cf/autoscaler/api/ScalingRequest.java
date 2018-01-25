@@ -32,6 +32,11 @@ public class ScalingRequest {
 	public void setContext(BindingContext context) {
 		this.context = context;
 	}
+	
+	@Override
+	public String toString() {
+		return "ScalingRequest [scale=" + scale + ", context=" + context + "]";
+	}
 
 	/**
 	 * Generates a JSON String out of the fields. Is needed for http communication beside spring.
