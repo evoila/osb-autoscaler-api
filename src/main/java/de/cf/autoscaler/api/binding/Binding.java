@@ -13,6 +13,11 @@ public class Binding {
 	 */
 	private String resourceId;
 	private String scalerId;
+	/**
+	 * Id of the specific service.
+	 * In the CF context, this would be the service instance id.
+	 */
+	private String serviceId;
 	private long creationTime;
 	private BindingContext context;
 	
@@ -21,6 +26,7 @@ public class Binding {
 		id = null;
 		resourceId = null;
 		scalerId = null;
+		serviceId = null;
 		context = null;
 		creationTime = 0;
 	}
@@ -29,22 +35,25 @@ public class Binding {
 		id = other.getId();
 		resourceId = other.getResourceId();
 		scalerId = other.getScalerId();
+		serviceId = other.getServiceId();
 		creationTime = other.getCreationTime();
 		context = new BindingContext(other.getContext());
 	}
 
-	public Binding(String id, String resourceId, String scalerId, long creationTime, BindingContext context) {
+	public Binding(String id, String resourceId, String scalerId, String serviceId, long creationTime,
+			BindingContext context) {
 		this.id = id;
 		this.resourceId = resourceId;
 		this.scalerId = scalerId;
-		this.context = context;
+		this.serviceId = serviceId;
 		this.creationTime = creationTime;
+		this.context = context;
 	}
 
 	@JsonIgnore
 	public boolean isValid() {
 		return id != null && resourceId != null && scalerId != null && creationTime > 0 && context != null
-				&& !id.isEmpty() && !resourceId.isEmpty() && !scalerId.isEmpty() && context.isValid();
+				&& !id.isEmpty() && !resourceId.isEmpty() && !scalerId.isEmpty() && !serviceId.isEmpty() && context.isValid();
 	}
 	
 	public String isValidWithReason() {
@@ -58,6 +67,8 @@ public class Binding {
 			return "resourceId contains special characters";
 		if (scalerId == null || scalerId.isEmpty())
 			return "scalerId is not set or empty";
+		if (serviceId == null || serviceId.isEmpty())
+			return "serviceId is not set or empty";
 		if (creationTime < 0)
 			return "creationTime is smaller than 0";
 		if (!context.isValid())
@@ -90,6 +101,14 @@ public class Binding {
 		this.scalerId = scalerId;
 	}
 	
+	public String getServiceId() {
+		return serviceId;
+	}
+
+	public void setServiceId(String serviceId) {
+		this.serviceId = serviceId;
+	}
+	
 	@JsonIgnore
 	public String getIdentifierStringForLogs() {
 		return 	id + " / " + resourceId;
@@ -112,6 +131,7 @@ public class Binding {
 	}
 	
 	public boolean equals(Binding other) {
-		return id.equals(other.getId()) && resourceId.equals(other.getResourceId()) && scalerId.equals(other.getScalerId()) && context.equals(other.context);
+		return id.equals(other.getId()) && resourceId.equals(other.getResourceId()) && scalerId.equals(other.getScalerId()) 
+				&& serviceId.equals(other.getServiceId()) && context.equals(other.context);
 	}
 }
