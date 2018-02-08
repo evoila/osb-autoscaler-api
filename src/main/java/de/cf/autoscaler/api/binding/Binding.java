@@ -52,7 +52,7 @@ public class Binding {
 
 	@JsonIgnore
 	public boolean isValid() {
-		return id != null && resourceId != null && scalerId != null && creationTime > 0 && context != null
+		return id != null && resourceId != null && scalerId != null && serviceId != null && creationTime > 0 && context != null
 				&& !id.isEmpty() && !resourceId.isEmpty() && !scalerId.isEmpty() && !serviceId.isEmpty() && context.isValid();
 	}
 	
