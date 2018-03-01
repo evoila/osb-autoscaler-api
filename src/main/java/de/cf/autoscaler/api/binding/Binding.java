@@ -12,6 +12,13 @@ public class Binding {
 	 * Id of the resource needed for identifying dedicated metrics from Kafka 
 	 */
 	private String resourceId;
+	/**
+	 * Name of the resource only used for displaying issues and not for scaling.
+	 */
+	private String resourceName;
+	/**
+	 * Id of the scaler this binding is bound to.
+	 */
 	private String scalerId;
 	/**
 	 * Id of the specific service.
@@ -19,12 +26,16 @@ public class Binding {
 	 */
 	private String serviceId;
 	private long creationTime;
+	/**
+	 * Context of this binding.
+	 */
 	private BindingContext context;
 	
 	
 	public Binding() {
 		id = null;
 		resourceId = null;
+		resourceName = null;
 		scalerId = null;
 		serviceId = null;
 		context = null;
@@ -34,16 +45,18 @@ public class Binding {
 	public Binding (Binding other) {
 		id = other.getId();
 		resourceId = other.getResourceId();
+		resourceName = other.getResourceName();
 		scalerId = other.getScalerId();
 		serviceId = other.getServiceId();
 		creationTime = other.getCreationTime();
 		context = new BindingContext(other.getContext());
 	}
 
-	public Binding(String id, String resourceId, String scalerId, String serviceId, long creationTime,
-			BindingContext context) {
+	public Binding(String id, String resourceId, String resourceName, String scalerId, String serviceId,
+			long creationTime, BindingContext context) {
 		this.id = id;
 		this.resourceId = resourceId;
+		this.resourceName = resourceName;
 		this.scalerId = scalerId;
 		this.serviceId = serviceId;
 		this.creationTime = creationTime;
@@ -72,7 +85,7 @@ public class Binding {
 		if (creationTime < 0)
 			return "creationTime is smaller than 0";
 		if (!context.isValid())
-			return "context is invald, make sure the guids do not have special characters and the platform is set, not empty and supported";
+			return "context is invalid, make sure the guids do not have special characters and the platform is set, not empty and supported";
 
 		return null;
 	}
@@ -111,7 +124,7 @@ public class Binding {
 	
 	@JsonIgnore
 	public String getIdentifierStringForLogs() {
-		return 	id + " / " + resourceId;
+		return 	resourceName + " / resourceId: '" + resourceId + "'";
 	}
 	
 	public long getCreationTime() {
@@ -130,6 +143,14 @@ public class Binding {
 		this.context = context;
 	}
 	
+	public String getResourceName() {
+		return resourceName;
+	}
+
+	public void setResourceName(String resourceName) {
+		this.resourceName = resourceName;
+	}
+
 	public boolean equals(Binding other) {
 		return id.equals(other.getId()) && resourceId.equals(other.getResourceId()) && scalerId.equals(other.getScalerId()) 
 				&& serviceId.equals(other.getServiceId()) && context.equals(other.context);
