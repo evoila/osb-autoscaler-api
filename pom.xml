@@ -6,12 +6,12 @@
     <packaging>jar</packaging>
     <name>api</name>
     <version>1.2.0</version>
-    
+
     <parent>
         <groupId>de.evoila.cf.broker</groupId>
-        <artifactId>parent</artifactId>
-        <version>1.2.0</version>
+        <artifactId>repo-parent</artifactId>
         <relativePath>../</relativePath>
+        <version>1.2.0</version>
     </parent>
 
     <properties>
