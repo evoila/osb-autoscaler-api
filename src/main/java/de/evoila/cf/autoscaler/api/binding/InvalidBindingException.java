@@ -1,4 +1,4 @@
-package de.cf.autoscaler.api.binding;
+package de.evoila.cf.autoscaler.api.binding;
 
 public class InvalidBindingException extends Exception {
 	

@@ -1,6 +1,6 @@
-package de.cf.autoscaler.api;
+package de.evoila.cf.autoscaler.api;
 
-import de.cf.autoscaler.api.binding.BindingContext;
+import de.evoila.cf.autoscaler.api.binding.BindingContext;
 
 public class ScalingRequest {
 

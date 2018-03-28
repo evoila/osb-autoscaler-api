@@ -1,6 +1,6 @@
-package de.cf.autoscaler.api;
+package de.evoila.cf.autoscaler.api;
 
-import de.cf.autoscaler.api.binding.BindingContext;
+import de.evoila.cf.autoscaler.api.binding.BindingContext;
 
 /**
  * POJO for serialization of a request body and the answer body of a request for the name of an application

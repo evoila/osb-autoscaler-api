@@ -1,4 +1,4 @@
-package de.cf.autoscaler.api.update;
+package de.evoila.cf.autoscaler.api.update;
 
 import java.util.HashSet;
 import java.util.LinkedList;

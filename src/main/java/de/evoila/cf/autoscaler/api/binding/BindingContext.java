@@ -1,4 +1,4 @@
-package de.cf.autoscaler.api.binding;
+package de.evoila.cf.autoscaler.api.binding;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
