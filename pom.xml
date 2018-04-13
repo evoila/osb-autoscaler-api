@@ -5,7 +5,7 @@
     <groupId>de.evoila.cf.broker</groupId>
     <artifactId>autoscaler-api</artifactId>
     <packaging>jar</packaging>
-    <name>autoscaler-api</name>
+    <name>osb-autoscaler-api</name>
     <version>1.2.0</version>
 
     <parent>
