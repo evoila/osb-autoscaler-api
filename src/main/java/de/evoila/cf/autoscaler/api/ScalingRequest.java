@@ -39,7 +39,7 @@ public class ScalingRequest {
 	}
 
 	/**
-	 * Generates a JSON String out of the fields. Is needed for http communication beside spring.
+	 * Generates a JSON String out of the fields. Is needed for controller communication beside spring.
 	 * @return JSON String filled with the fields
 	 */
 	public String getJSON() {
