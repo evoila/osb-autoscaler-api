@@ -13,7 +13,7 @@ public class ApplicationNameRequest {
 	private String name;
 	private BindingContext context;
 	
-	public ApplicationNameRequest() {  }
+	public ApplicationNameRequest() {}
 
 	public ApplicationNameRequest(String id, String name, BindingContext context) {
 		this.id = id;
