@@ -8,30 +8,35 @@ public class Binding {
 	 * Id of the binding to identify a specific binding
 	 */
 	private String id;
+
 	/**
 	 * Id of the resource needed for identifying dedicated metrics from Kafka 
 	 */
 	private String resourceId;
+
 	/**
 	 * Name of the resource only used for displaying issues and not for scaling.
 	 */
 	private String resourceName;
+
 	/**
 	 * Id of the scaler this binding is bound to.
 	 */
 	private String scalerId;
+
 	/**
 	 * Id of the specific service.
 	 * In the CF context, this would be the service instance id.
 	 */
 	private String serviceId;
+
 	private long creationTime;
+
 	/**
 	 * Context of this binding.
 	 */
 	private BindingContext context;
-	
-	
+
 	public Binding() {
 		id = null;
 		resourceId = null;
